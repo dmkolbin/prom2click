@@ -15,7 +15,7 @@ clickhouse:
   username: ''
   password: ''
 
-registryCredentials:
+registryCredentials: '{}'
 
 image:
   repository: index.exp.railsc.ru/prom2click/prom2click
@@ -23,7 +23,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "new"
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: registry-credentials
 nameOverride: ""
 fullnameOverride: ""
 
