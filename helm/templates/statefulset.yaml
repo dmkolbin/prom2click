@@ -59,7 +59,7 @@ spec:
               protocol: TCP
           command:
             - 'prom2click'
-            - '-ch.dsn="tcp://${CLICKHOUSE_HOST}:${CLICKHOUSE_PORT}?username=${CLICKHOUSE_USER}&password=${CLICKHOUSE_USER_PASSWORD}&database=${CLICKHOUSE_DATABASE}&read_timeout=${CLICKHOUSE_READ_TIMEOUT}&write_timeout=${CLICKHOUSE_WRITE_TIMEOUT}"'
+            - '-ch.dsn=tcp://${CLICKHOUSE_HOST}:${CLICKHOUSE_PORT}?username=${CLICKHOUSE_USER}&password=${CLICKHOUSE_USER_PASSWORD}&database=${CLICKHOUSE_DATABASE}&read_timeout=${CLICKHOUSE_READ_TIMEOUT}&write_timeout=${CLICKHOUSE_WRITE_TIMEOUT}'
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
