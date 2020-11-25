@@ -1,5 +1,3 @@
-{{- $fullName := include "prom2click.fullname" . -}}
-
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -7,7 +5,7 @@ metadata:
   name: {{ include "prom2click.fullname" . }}-clickhouse
   namespace: {{ .Release.Namespace }}
 data:
-  CLICKHOUSE_HOST: "{{ .Values.clickhouse.host }}" #"{{ $fullName }}-clickhouse"
+  CLICKHOUSE_HOST: "{{ .Values.clickhouse.host }}"
   CLICKHOUSE_PORT: "{{ .Values.clickhouse.port }}"
   CLICKHOUSE_DATABASE: "{{ .Values.clickhouse.database }}"
   CLICKHOUSE_READ_TIMEOUT: "{{ .Values.clickhouse.readTimeout }}"
