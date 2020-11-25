@@ -15,6 +15,7 @@ clickhouse:
   username: ''
   password: ''
 
+registryCredentials:
 
 image:
   repository: index.exp.railsc.ru/prom2click/prom2click
