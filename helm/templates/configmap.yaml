@@ -7,7 +7,6 @@ metadata:
 data:
   CLICKHOUSE_HOST: {{ .Values.clickhouse.host }}
   CLICKHOUSE_PORT: {{ .Values.clickhouse.port }}
-  CLICKHOUSE_ALTERNATIVE_HOST: {{ .Values.clickhouse.alternativeHost }}
   CLICKHOUSE_DATABASE: {{ .Values.clickhouse.database }}
   CLICKHOUSE_READ_TIMEOUT: {{ .Values.clickhouse.readTimeout }}
   CLICKHOUSE_WRITE_TIMEOUT: {{ .Values.clickhouse.writeTimeout }}

@@ -8,7 +8,6 @@ updateStrategy:
 
 clickhouse:
   host: 'clickhouse'
-  alternativeHost: ''
   port: '9000'
   database: 'metrics'
   readTimeout: '30'
