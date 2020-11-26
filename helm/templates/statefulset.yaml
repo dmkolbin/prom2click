@@ -39,20 +39,6 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          envFrom:
-            - configMapRef:
-                name: {{ include "prom2click.fullname" . }}-clickhouse
-          env:
-            - name: "CLICKHOUSE_USER"
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "prom2click.fullname" . }}-clickhouse-secret
-                  key: username
-            - name: "CLICKHOUSE_USER_PASSWORD"
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "prom2click.fullname" . }}-clickhouse-secret
-                  key: password
           ports:
             - name: http
               containerPort: 9201
@@ -60,7 +46,7 @@ spec:
           command:
             - 'prom2click'
           args:
-            - '-ch.dsn=tcp://${CLICKHOUSE_HOST}:${CLICKHOUSE_PORT}?username=${CLICKHOUSE_USER}&password=${CLICKHOUSE_USER_PASSWORD}&database=${CLICKHOUSE_DATABASE}&read_timeout=${CLICKHOUSE_READ_TIMEOUT}&write_timeout=${CLICKHOUSE_WRITE_TIMEOUT}'
+            - "-ch.dsn=tcp://{{ .Values.clickhouse.host }}:{{ .Values.clickhouse.port }}?username={{ .Values.clickhouse.username }}&password={{ .Values.clickhouse.password }}&database={{ .Values.clickhouse.database }}&read_timeout={{ .Values.clickhouse.readTimeout }}&write_timeout={{ .Values.clickhouse.writeTimeout }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

@@ -10,8 +10,8 @@ clickhouse:
   host: 'clickhouse'
   port: '9000'
   database: 'metrics'
-  readTimeout: '30'
-  writeTimeout: '15'
+  readTimeout: '60'
+  writeTimeout: '60'
   username: ''
   password: ''
 
@@ -73,7 +73,7 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
    limits:
-     cpu: 1
+     cpu: 800m
      memory: 512Mi
    requests:
      cpu: 200m
@@ -82,9 +82,9 @@ resources:
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
