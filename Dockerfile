@@ -1,6 +1,6 @@
 FROM alpine:3.11 as builder
 RUN apk add --no-cache alpine-sdk go glide && \
-    git clone git@github.com:dmkolbin/prom2click.git && \
+    git clone https://github.com/dmkolbin/prom2click.git && \
     cd prom2click && \
     mkdir -p /root/go /root/go/src && \
     make get-deps && \
