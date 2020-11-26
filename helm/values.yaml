@@ -21,7 +21,7 @@ image:
   repository: index.exp.railsc.ru/prom2click/prom2click
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "new"
+  tag: "latest"
 
 imagePullSecrets:
   - name: registry-credentials
